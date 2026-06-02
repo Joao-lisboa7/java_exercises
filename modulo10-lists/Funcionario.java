@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class Funcionario {
@@ -38,7 +37,7 @@ public class Funcionario {
   
   @Override
   public String toString() {
-    return "Funcionario [id = " + id + ", nome = " + nome + ", salario ="  + salario + "]";
+    return "Funcionario [id = " + id + ", nome = " + nome + ", salario = "  + salario + "]";
   }
 
   public static void listarFuncionarios(List<Funcionario> funcionarios){
@@ -50,9 +49,11 @@ public class Funcionario {
     }
   }
 
-  public double aumentarSalario(){
-    /*Implementar*/
-    return 0;
+  public double aumentarSalario(double porcentagem){
+    double aumento = salario * porcentagem / 100;
+    salario += aumento;
+
+    return salario;
   }
 
 }
