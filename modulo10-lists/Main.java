@@ -32,7 +32,52 @@ public class Main{
       id++;
     }
 
-    Funcionario.listarFuncionarios(funcionarios);
+    int opcao;
+
+    do {
+        System.out.println("\n===== MENU =====");
+        System.out.println("1 - Listar funcionários");
+        System.out.println("2 - Aumentar salário");
+        System.out.println("0 - Sair");
+        System.out.print("Escolha uma opção: ");
+
+        opcao = sc.nextInt();
+
+        switch (opcao) {
+            case 1:
+                Funcionario.listarFuncionarios(funcionarios);
+                break;
+
+            case 2:
+                System.out.print("Informe o ID do funcionário: ");
+                int idFuncinario = sc.nextInt();
+
+                Funcionario f = funcionarios.stream().filter(x -> x.getId() == idFuncinario).findFirst().orElse(null);
+
+                if(f == null){
+                  System.out.println("Esse id não existe!");
+                }else{
+                  System.out.print("Informe a porcentagem de aumento: ");
+                  Double porcentagem = sc.nextDouble();
+                  sc.nextLine();
+
+                  f.aumentarSalario(porcentagem);
+                  System.out.println("Salário atualizado com sucesso!");
+                  System.out.println(f.toString());
+                }
+                break;
+
+            case 0:
+                System.out.println("Programa encerrado.");
+                break;
+
+            default:
+                System.out.println("Opção inválida!");
+                break;
+        }
+
+    } while (opcao != 0);
+
 
 
     sc.close();
