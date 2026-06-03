@@ -17,7 +17,20 @@ public class Main{
     List<Funcionario> funcionarios = new ArrayList<>();
 
     for(int i = 0; i < n; i++){
-      id = i + 1;
+       while (true) {
+        System.out.print("Qual o id: ");
+        id = sc.nextInt();
+        sc.nextLine();
+
+        final int idAtual = id;
+
+        boolean idExiste = funcionarios.stream().anyMatch(f -> f.getId() == idAtual);
+
+        if (!idExiste) {
+            break;
+        }
+        System.out.println("Erro: ID já cadastrado. Digite outro.");
+    }
 
       System.out.print("Qual o nome do funcionario: ");
       nome = sc.nextLine();
@@ -25,11 +38,11 @@ public class Main{
       System.out.print("Qual o salário: ");
       salario = sc.nextDouble();
       sc.nextLine();
+
       
       funcionarios.add(new Funcionario(id, nome, salario));
       System.out.println("==========================");
 
-      id++;
     }
 
     int opcao;
