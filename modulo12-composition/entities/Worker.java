@@ -58,7 +58,7 @@ public class Worker {
     return contracts;
   }
 
-  public void addContact(HourContract contract){
+  public void addContract(HourContract contract){
     contracts.add(contract);
   }
 
