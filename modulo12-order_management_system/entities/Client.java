@@ -36,6 +36,6 @@ public class Client {
 
   @Override
   public String toString() {
-    return "Client [name=" + name + ", email=" + email + ", birthDate=" + birthDate + "]";
+    return "Client [name=" + name + ", email=" + email + ", birthDate=" + sdf.format(birthDate) + "]";
   }
 }
